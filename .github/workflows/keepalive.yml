@@ -2,13 +2,12 @@ name: Keepalive
 
 on:
   schedule:
-    - cron: '0 0 * * 0'   # 每周日 00:00 UTC 触发一次（你可以改）
-  workflow_dispatch:       # 也支持手动触发
+    - cron: '0 0 * * 0'   # 每周日 00:00 UTC 自动执行一次
+  workflow_dispatch:       # 允许你手动触发
 
 jobs:
   keepalive:
     runs-on: ubuntu-latest
     steps:
       - name: Keep repo active
-        run: |
-          echo "Last keepalive run: $(date)"
+        run: echo "Keepalive run on $(date)"
